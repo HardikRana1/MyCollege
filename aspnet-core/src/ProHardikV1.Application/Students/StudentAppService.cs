@@ -8,7 +8,7 @@ using ProHardikV1.Models;
 namespace ProHardikV1.Students
 {
 
-    // [AbpAuthorize(PermissionNames.Pages_Students)]
+     [AbpAuthorize(PermissionNames.Pages_Students)]
     public class StudentAppService : AsyncCrudAppService<Student, StudentDto, int, PagedStudentResultRequestDto, CreateStudentDto, UpdateStudentDto>, IStudentAppService
     {
         public StudentAppService
