@@ -4,6 +4,7 @@ using ProHardikV1.Authorization.Roles;
 using ProHardikV1.Authorization.Users;
 using ProHardikV1.MultiTenancy;
 using Abp.Localization;
+using MyCollegeV2.Models;
 
 namespace ProHardikV1.EntityFrameworkCore
 {
@@ -26,5 +27,6 @@ namespace ProHardikV1.EntityFrameworkCore
                 .Property(p => p.Value)
                 .HasMaxLength(100); // any integer that is smaller than 10485760
         }
+        public virtual DbSet<Student> Students { get; set; }
     }
 }
