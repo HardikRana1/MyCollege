@@ -21,6 +21,8 @@ namespace ProHardikV1.Students.Dto
 
         public long? CreatorUserId { get; set; }
 
+        public int CollegeId { get; set; }
+
     }
 }
 

@@ -26,5 +26,11 @@ namespace ProHardikV1.Models
 
         public bool IsActive { get; set; }
 
+        // Foreign Key
+         public int CollegeId { get; set; }
+
+        // Navigation Property
+        public College College { get; set; }
+
     }
 }

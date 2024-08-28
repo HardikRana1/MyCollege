@@ -14,7 +14,9 @@ namespace ProHardikV1.Students.Dto
         public string ProgramName { get; set; }
         public string DoB { get; set; }
         public bool IsActive { get; set; }
-///UpdateDto.cs.fields1///
+
+        public int CollegeId { get; set; }
+        ///UpdateDto.cs.fields1///
 
     }
 }

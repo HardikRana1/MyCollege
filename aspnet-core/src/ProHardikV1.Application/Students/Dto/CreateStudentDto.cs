@@ -15,6 +15,8 @@ namespace ProHardikV1.Students.Dto
         public string DoB { get; set; }
         public bool IsActive { get; set; }
         ///CreateDto.cs.fields1///
+        ///
+        public int CollegeId { get; set; }
 
     }
 }

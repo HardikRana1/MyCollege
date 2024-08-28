@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ProHardikV1.EntityFrameworkCore;
@@ -11,9 +12,11 @@ using ProHardikV1.EntityFrameworkCore;
 namespace ProHardikV1.Migrations
 {
     [DbContext(typeof(ProHardikV1DbContext))]
-    partial class ProHardikV1DbContextModelSnapshot : ModelSnapshot
+    [Migration("20240828203111_RemoveCollegeIdToStudent")]
+    partial class RemoveCollegeIdToStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1646,9 +1649,6 @@ namespace ProHardikV1.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
-                    b.Property<int>("CollegeId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("timestamp with time zone");
 
@@ -1686,8 +1686,6 @@ namespace ProHardikV1.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CollegeId");
 
                     b.ToTable("Students");
                 });
@@ -1972,17 +1970,6 @@ namespace ProHardikV1.Migrations
                     b.Navigation("DeleterUser");
 
                     b.Navigation("LastModifierUser");
-                });
-
-            modelBuilder.Entity("ProHardikV1.Models.Student", b =>
-                {
-                    b.HasOne("ProHardikV1.Models.College", "College")
-                        .WithMany()
-                        .HasForeignKey("CollegeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("College");
                 });
 
             modelBuilder.Entity("ProHardikV1.MultiTenancy.Tenant", b =>
