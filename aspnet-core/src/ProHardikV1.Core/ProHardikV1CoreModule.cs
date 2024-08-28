@@ -36,7 +36,7 @@ namespace ProHardikV1
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
             
-            Configuration.Localization.Languages.Add(new LanguageInfo("fa", "فارسی", "famfamfam-flags ir"));
+            //Configuration.Localization.Languages.Add(new LanguageInfo("fa", "فارسی", "famfamfam-flags ir"));
             
             Configuration.Settings.SettingEncryptionConfiguration.DefaultPassPhrase = ProHardikV1Consts.DefaultPassPhrase;
             SimpleStringCipher.DefaultPassPhrase = ProHardikV1Consts.DefaultPassPhrase;

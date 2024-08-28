@@ -4,7 +4,7 @@ using System.Text;
 using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 
-namespace MyCollegeV2.Models
+namespace ProHardikV1.Models
 {
     public class Student : FullAuditedEntity<int>, IPassivable
     {

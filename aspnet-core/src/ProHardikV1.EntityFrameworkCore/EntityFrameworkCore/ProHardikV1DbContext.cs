@@ -4,7 +4,7 @@ using ProHardikV1.Authorization.Roles;
 using ProHardikV1.Authorization.Users;
 using ProHardikV1.MultiTenancy;
 using Abp.Localization;
-using MyCollegeV2.Models;
+using ProHardikV1.Models;
 
 namespace ProHardikV1.EntityFrameworkCore
 {

@@ -1377,7 +1377,7 @@ namespace ProHardikV1.Migrations
                     b.ToTable("AbpWebhookSubscriptions");
                 });
 
-            modelBuilder.Entity("MyCollegeV2.Models.Student", b =>
+            modelBuilder.Entity("ProHardikV1.Models.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
