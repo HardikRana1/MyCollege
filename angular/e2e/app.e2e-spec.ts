@@ -1,10 +1,10 @@
-import { ProHardikV1TemplatePage } from './app.po';
+import { MyCollegeV2TemplatePage } from './app.po';
 
-describe('ProHardikV1 App', function() {
-  let page: ProHardikV1TemplatePage;
+describe('MyCollegeV2 App', function() {
+  let page: MyCollegeV2TemplatePage;
 
   beforeEach(() => {
-    page = new ProHardikV1TemplatePage();
+    page = new MyCollegeV2TemplatePage();
   });
 
   it('should display message saying app works', () => {

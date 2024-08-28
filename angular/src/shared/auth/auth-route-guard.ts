@@ -2,10 +2,15 @@ import { Injectable } from '@angular/core';
 import { PermissionCheckerService } from 'abp-ng2-module';
 import { AppSessionService } from '../session/app-session.service';
 
-import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {
+    CanActivate, Router,
+    ActivatedRouteSnapshot,
+    RouterStateSnapshot,
+    CanActivateChild
+} from '@angular/router';
 
 @Injectable()
-export class AppRouteGuard  {
+export class AppRouteGuard implements CanActivate, CanActivateChild {
 
     constructor(
         private _permissionChecker: PermissionCheckerService,

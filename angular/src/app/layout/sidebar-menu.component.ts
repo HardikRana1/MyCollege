@@ -23,20 +23,22 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
 
     constructor(injector: Injector, private router: Router) {
         super(injector);
+        this.router.events.subscribe(this.routerEvents);
     }
 
     ngOnInit(): void {
         this.menuItems = this.getMenuItems();
         this.patchMenuItems(this.menuItems);
-
-        this.router.events.subscribe((event: NavigationEnd) => {
-            const currentUrl = event.url !== '/' ? event.url : this.homeRoute;
+        this.routerEvents
+            .pipe(filter((event) => event instanceof NavigationEnd))
+            .subscribe((event) => {
+                const currentUrl = event.url !== '/' ? event.url : this.homeRoute;
                 const primaryUrlSegmentGroup = this.router.parseUrl(currentUrl).root
                     .children[PRIMARY_OUTLET];
                 if (primaryUrlSegmentGroup) {
                     this.activateMenuItems('/' + primaryUrlSegmentGroup.toString());
                 }
-        });
+            });
     }
 
     getMenuItems(): MenuItem[] {
@@ -112,6 +114,13 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                     )
                 ])
             ])
+           ,new MenuItem(
+               this.l('Students'),
+               '/app/students',
+               'fas fa-building',
+               'Pages.Students'
+           )
+///sidebar-menu.component.ts.place1///
         ];
     }
 
@@ -182,3 +191,4 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
         return this.permission.isGranted(item.permissionName);
     }
 }
+
