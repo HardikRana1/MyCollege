@@ -28,5 +28,7 @@ namespace ProHardikV1.EntityFrameworkCore
                 .HasMaxLength(100); // any integer that is smaller than 10485760
         }
         public virtual DbSet<Student> Students { get; set; }
+
+        public virtual DbSet<College> Colleges { get; set; }
     }
 }

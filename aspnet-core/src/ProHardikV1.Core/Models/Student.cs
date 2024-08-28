@@ -13,6 +13,7 @@ namespace ProHardikV1.Models
             this.IsActive = true;
             this.CreationTime = DateTime.Now;
         }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
