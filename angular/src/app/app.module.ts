@@ -26,6 +26,11 @@ import { EditRoleDialogComponent } from './roles/edit-role/edit-role-dialog.comp
 import { StudentsComponent } from '@app/students/students.component';
 import { CreateStudentDialogComponent } from './students/create-student/create-student-dialog.component';
 import { EditStudentDialogComponent } from './students/edit-student/edit-student-dialog.component';
+// colleges
+import { CollegesComponent } from '@app/colleges/colleges.component';
+import { CreateCollegeDialogComponent } from './colleges/create-college/create-college-dialog.component';
+import { EditCollegeDialogComponent } from './colleges/edit-college/edit-college-dialog.component';
+
 // users
 import { UsersComponent } from '@app/users/users.component';
 import { CreateUserDialogComponent } from '@app/users/create-user/create-user-dialog.component';
@@ -76,6 +81,10 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         ,StudentsComponent
         ,CreateStudentDialogComponent
         ,EditStudentDialogComponent
+        // colleges
+        ,CollegesComponent
+        ,CreateCollegeDialogComponent
+        ,EditCollegeDialogComponent
     ],
     imports: [
         CommonModule,

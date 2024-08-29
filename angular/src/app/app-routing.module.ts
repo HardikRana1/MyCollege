@@ -24,7 +24,7 @@ import { CollegesComponent } from 'app/colleges/colleges.component';
                     { path: 'about', component: AboutComponent, canActivate: [AppRouteGuard] },
                     { path: 'update-password', component: ChangePasswordComponent, canActivate: [AppRouteGuard] }
                     ,{ path: 'students', component: StudentsComponent, data: { permission: 'Pages.Students' }, canActivate: [AppRouteGuard] }
-                    ,{ path: 'colleges', component: CollegesComponent, data: { permission: 'Pages.Students' }, canActivate: [AppRouteGuard]},
+                    ,{ path: 'colleges', component: CollegesComponent, data: { permission: 'Pages.Colleges' }, canActivate: [AppRouteGuard]},
                 ]
             }
         ])
