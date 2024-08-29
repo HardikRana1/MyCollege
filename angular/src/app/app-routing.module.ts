@@ -8,8 +8,8 @@ import { UsersComponent } from './users/users.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { RolesComponent } from 'app/roles/roles.component';
 import { ChangePasswordComponent } from './users/change-password/change-password.component';
-import { StudentsComponent } from 'app/students/students.component';
-import { CollegesComponent } from 'app/colleges/colleges.component';
+import { StudentsComponent } from './students/students.component';
+import { CollegesComponent } from './colleges/colleges.component';
 @NgModule({
     imports: [
         RouterModule.forChild([

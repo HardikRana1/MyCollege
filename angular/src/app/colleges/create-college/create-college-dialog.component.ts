@@ -10,7 +10,6 @@ import { AppComponentBase } from '@shared/app-component-base';
 })
 export class CreateCollegeDialogComponent extends AppComponentBase {
   saving = false;
-  college: CollegeDto = new CollegeDto();
   form: FormGroup;
 
   @ViewChild('form', { static: true }) formTemplate: any;
@@ -30,9 +29,13 @@ export class CreateCollegeDialogComponent extends AppComponentBase {
 
   createForm(): void {
     this.form = this.fb.group({
-      name: [this.college.name, Validators.required],
-      address: [this.college.address, Validators.required],
-      description: [this.college.description],
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      description: [''],
+      latitude: [null, Validators.required],
+      longitude: [null, Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      isActive: [true]
     });
   }
 

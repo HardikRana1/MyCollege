@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit, ViewChild } from '@angular/core';
+import { Component, Injector, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { finalize } from 'rxjs/operators';
@@ -12,8 +12,9 @@ export class EditCollegeDialogComponent extends AppComponentBase implements OnIn
   saving = false;
   college: CollegeDto = new CollegeDto();
   form: FormGroup;
+  id: number;  
 
-  @ViewChild('form', { static: true }) formTemplate: any;
+  @Output() onSave = new EventEmitter<any>();
 
   constructor(
     injector: Injector,
@@ -35,16 +36,20 @@ export class EditCollegeDialogComponent extends AppComponentBase implements OnIn
       name: [this.college.name, Validators.required],
       address: [this.college.address, Validators.required],
       description: [this.college.description],
+      latitude: [this.college.latitude, Validators.required],
+      longitude: [this.college.longitude, Validators.required],
+      email: [this.college.email, [Validators.required, Validators.email]],
+      isActive: [this.college.isActive]
     });
   }
 
   loadCollege(): void {
-    this._collegeService
-      .get(this.bsModalRef.content.id)
-      .subscribe((result: CollegeDto) => {
-        this.college = result;
-        this.form.patchValue(result);
-      });
+    // Fetch the college data based on the provided ID
+    this._collegeService.get(this.id).subscribe((result: CollegeDto) => {
+      this.college = result;
+      // Patch the form with the fetched data
+      this.form.patchValue(result);
+    });
   }
 
   save(): void {
@@ -54,17 +59,14 @@ export class EditCollegeDialogComponent extends AppComponentBase implements OnIn
 
     this.saving = true;
 
-    this._collegeService
-      .update(this.form.value)
-      .pipe(
-        finalize(() => {
-          this.saving = false;
-        })
-      )
-      .subscribe(() => {
-        this.notify.success(this.l('SavedSuccessfully'));
-        this.bsModalRef.content.onSave.emit();
-        this.bsModalRef.hide();
-      });
+    this._collegeService.update(this.form.value).pipe(
+      finalize(() => {
+        this.saving = false;
+      })
+    ).subscribe(() => {
+      this.notify.success(this.l('SavedSuccessfully'));
+      this.bsModalRef.hide();
+      this.onSave.emit();
+    });
   }
 }
