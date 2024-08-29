@@ -22,6 +22,10 @@ import { EditTenantDialogComponent } from './tenants/edit-tenant/edit-tenant-dia
 import { RolesComponent } from '@app/roles/roles.component';
 import { CreateRoleDialogComponent } from './roles/create-role/create-role-dialog.component';
 import { EditRoleDialogComponent } from './roles/edit-role/edit-role-dialog.component';
+// students
+import { StudentsComponent } from '@app/students/students.component';
+import { CreateStudentDialogComponent } from './students/create-student/create-student-dialog.component';
+import { EditStudentDialogComponent } from './students/edit-student/edit-student-dialog.component';
 // users
 import { UsersComponent } from '@app/users/users.component';
 import { CreateUserDialogComponent } from '@app/users/create-user/create-user-dialog.component';
@@ -38,11 +42,6 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
-// students
-import { StudentsComponent } from '@app/students/students.component';
-import { CreateStudentDialogComponent } from './students/create-student/create-student-dialog.component';
-import { EditStudentDialogComponent } from './students/edit-student/edit-student-dialog.component';
-///app.module.ts.place1///
 
 @NgModule({
     declarations: [
@@ -77,7 +76,6 @@ import { EditStudentDialogComponent } from './students/edit-student/edit-student
         ,StudentsComponent
         ,CreateStudentDialogComponent
         ,EditStudentDialogComponent
-///app.module.ts.place2///
     ],
     imports: [
         CommonModule,
@@ -97,4 +95,3 @@ import { EditStudentDialogComponent } from './students/edit-student/edit-student
     providers: []
 })
 export class AppModule {}
-
