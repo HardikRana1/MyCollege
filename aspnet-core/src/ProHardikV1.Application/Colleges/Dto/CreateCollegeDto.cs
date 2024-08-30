@@ -6,7 +6,7 @@ namespace ProHardikV1.Colleges.Dto
     [AutoMapTo(typeof(College))]
     public class CreateCollegeDto
     {
-        public int Id { get; set; }
+        public int CollegeId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Description { get; set; }

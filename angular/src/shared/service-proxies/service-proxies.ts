@@ -12,9 +12,8 @@ import { mergeMap as _observableMergeMap, catchError as _observableCatch } from 
 import { Observable, throwError as _observableThrow, of as _observableOf } from 'rxjs';
 import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angular/common/http';
-
-//import moment from 'moment';
 import * as moment from 'moment';
+
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -3139,12 +3138,13 @@ export class UserServiceProxy {
      */
     get(id: number | undefined): Observable<UserDto> {
         let url_ = this.baseUrl + "/api/services/app/User/Get?";
+
         if (id === null)
             throw new Error("The parameter 'id' cannot be null.");
         else if (id !== undefined)
             url_ += "Id=" + encodeURIComponent("" + id) + "&";
         url_ = url_.replace(/[?&]$/, "");
-
+        console.log(url_);
         let options_ : any = {
             observe: "response",
             responseType: "blob",
@@ -3565,6 +3565,7 @@ export interface IChangeUserLanguageDto {
 
 export class CollegeDto implements ICollegeDto {
     id: number;
+    collegeId: number;
     name: string | undefined;
     address: string | undefined;
     description: string | undefined;
@@ -3587,6 +3588,7 @@ export class CollegeDto implements ICollegeDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.collegeId = _data["collegeId"];
             this.name = _data["name"];
             this.address = _data["address"];
             this.description = _data["description"];
@@ -3609,6 +3611,7 @@ export class CollegeDto implements ICollegeDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["collegeId"] = this.collegeId;
         data["name"] = this.name;
         data["address"] = this.address;
         data["description"] = this.description;
@@ -3631,6 +3634,7 @@ export class CollegeDto implements ICollegeDto {
 
 export interface ICollegeDto {
     id: number;
+    collegeId: number;
     name: string | undefined;
     address: string | undefined;
     description: string | undefined;
@@ -3698,7 +3702,7 @@ export interface ICollegeDtoPagedResultDto {
 }
 
 export class CreateCollegeDto implements ICreateCollegeDto {
-    id: number;
+    collegeId: number;
     name: string | undefined;
     address: string | undefined;
     description: string | undefined;
@@ -3718,7 +3722,7 @@ export class CreateCollegeDto implements ICreateCollegeDto {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
+            this.collegeId = _data["collegeId"];
             this.name = _data["name"];
             this.address = _data["address"];
             this.description = _data["description"];
@@ -3738,7 +3742,7 @@ export class CreateCollegeDto implements ICreateCollegeDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
+        data["collegeId"] = this.collegeId;
         data["name"] = this.name;
         data["address"] = this.address;
         data["description"] = this.description;
@@ -3758,7 +3762,7 @@ export class CreateCollegeDto implements ICreateCollegeDto {
 }
 
 export interface ICreateCollegeDto {
-    id: number;
+    collegeId: number;
     name: string | undefined;
     address: string | undefined;
     description: string | undefined;
@@ -5254,6 +5258,7 @@ export interface ITenantLoginInfoDto {
 
 export class UpdateCollegeDto implements IUpdateCollegeDto {
     id: number;
+    collegeId: number;
     name: string | undefined;
     address: string | undefined;
     description: string | undefined;
@@ -5274,6 +5279,7 @@ export class UpdateCollegeDto implements IUpdateCollegeDto {
     init(_data?: any) {
         if (_data) {
             this.id = _data["id"];
+            this.collegeId = _data["collegeId"];
             this.name = _data["name"];
             this.address = _data["address"];
             this.description = _data["description"];
@@ -5294,6 +5300,7 @@ export class UpdateCollegeDto implements IUpdateCollegeDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
+        data["collegeId"] = this.collegeId;
         data["name"] = this.name;
         data["address"] = this.address;
         data["description"] = this.description;
@@ -5314,6 +5321,7 @@ export class UpdateCollegeDto implements IUpdateCollegeDto {
 
 export interface IUpdateCollegeDto {
     id: number;
+    collegeId: number;
     name: string | undefined;
     address: string | undefined;
     description: string | undefined;

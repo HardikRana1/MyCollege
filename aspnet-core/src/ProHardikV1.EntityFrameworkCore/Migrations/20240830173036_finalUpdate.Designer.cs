@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ProHardikV1.EntityFrameworkCore;
@@ -11,9 +12,11 @@ using ProHardikV1.EntityFrameworkCore;
 namespace ProHardikV1.Migrations
 {
     [DbContext(typeof(ProHardikV1DbContext))]
-    partial class ProHardikV1DbContextModelSnapshot : ModelSnapshot
+    [Migration("20240830173036_finalUpdate")]
+    partial class finalUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1590,9 +1593,6 @@ namespace ProHardikV1.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("text");
-
-                    b.Property<int>("CollegeId")
-                        .HasColumnType("integer");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("timestamp with time zone");

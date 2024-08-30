@@ -69,9 +69,15 @@ namespace ProHardikV1.Web.Host.Startup
                 // Cookie value does not matches to querystring value
                 return Task.CompletedTask;
             }
+            try
+            {
+                // Set auth token from cookie
+                context.Token = SimpleStringCipher.Instance.Decrypt(qsAuthToken);
+            }
+            catch (Exception ex)
+            {
 
-            // Set auth token from cookie
-            context.Token = SimpleStringCipher.Instance.Decrypt(qsAuthToken);
+            }
             return Task.CompletedTask;
         }
     }

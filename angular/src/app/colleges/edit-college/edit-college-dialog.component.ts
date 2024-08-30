@@ -45,6 +45,8 @@ export class EditCollegeDialogComponent extends AppComponentBase implements OnIn
 
   loadCollege(): void {
     // Fetch the college data based on the provided ID
+    //console.log('college data');
+    //console.log(this.id);
     this._collegeService.get(this.id).subscribe((result: CollegeDto) => {
       this.college = result;
       // Patch the form with the fetched data
@@ -53,9 +55,9 @@ export class EditCollegeDialogComponent extends AppComponentBase implements OnIn
   }
 
   save(): void {
-    if (this.form.invalid) {
+    /*if (this.form.invalid) {
       return;
-    }
+    }*/
 
     this.saving = true;
 

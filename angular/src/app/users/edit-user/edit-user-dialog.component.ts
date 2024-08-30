@@ -36,9 +36,10 @@ export class EditUserDialogComponent extends AppComponentBase
   }
 
   ngOnInit(): void {
+    //console.log(this.id);
     this._userService.get(this.id).subscribe((result) => {
       this.user = result;
-
+     // console.log(this.user);
       this._userService.getRoles().subscribe((result2) => {
         this.roles = result2.items;
         this.setInitialRolesStatus();

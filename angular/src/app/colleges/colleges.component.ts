@@ -81,6 +81,7 @@ export class CollegesComponent extends PagedListingComponentBase<CollegeDto> {
   }
 
   editCollege(college: CollegeDto): void {
+    console.log(college.id);
     this.showCreateOrEditCollegeDialog(college.id);
   }
 
@@ -99,7 +100,7 @@ export class CollegesComponent extends PagedListingComponentBase<CollegeDto> {
         {
           class: 'modal-lg',
           initialState: {
-            //id: id,
+            id: id,
           },
         }
       );

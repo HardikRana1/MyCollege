@@ -1,4 +1,5 @@
 <form
+  [formGroup]="form"
   class="form-horizontal"
   autocomplete="off"
   #editCollegeForm="ngForm"
@@ -127,7 +128,7 @@
   </div>
   <abp-modal-footer
     [cancelDisabled]="saving"
-    [saveDisabled]="!editCollegeForm.valid || saving"
+    [saveDisabled]="saving"
     (onCancelClick)="bsModalRef.hide()"
   ></abp-modal-footer>
 </form>
